@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Assignment</title>
+</head>
+
+<script>
+    var env = "test";
+    var baseAmount = 100;
+    var sendingAmount;
+
+    switch (env) {
+        case "dev":
+            sendingAmount = baseAmount + (baseAmount * 0.1);
+            break;
+        case "test":
+            sendingAmount = baseAmount + (baseAmount * 0.2);
+            break;
+        case "stage":
+            sendingAmount = baseAmount + (baseAmount * 0.3);
+            break;
+        case "prod":
+            sendingAmount = baseAmount + (baseAmount * 0.05);
+            break;
+        default:
+            sendingAmount = baseAmount;
+    }
+
+    console.log("Sending Amount: " + sendingAmount);
+</script>
+
+</html>
