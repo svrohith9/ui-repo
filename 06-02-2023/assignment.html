@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment</title>
+</head>
+<script>
+    document.write("<h1>My Hobbies</h1>")
+    hobbies = ["football", "sports", "dance", "sing", "code", "eat", "sleep"]
+    function hobby() {
+        
+
+        document.write("<ul>")
+        for (i = 0; i < hobbies.length; i++) {
+            document.write("<li>" + hobbies[i] + "</li>")
+        }
+        document.write("</ul>")
+        document.write("<h1>-------------------------------------------------</h1>")
+    }
+
+    hobby();
+
+    var h=prompt("Enter your a hobby to add: ");
+    hobbies.push(h);
+    document.write("My Hobbies after adding :",h)
+    hobby();
+
+
+    var d=prompt("Enter your a hobby to delete: ");
+    document.write("My Hobbies after deleting :",d)
+    hobbies.splice(hobbies.indexOf(d),1);
+    hobby();
+
+
+
+</script>
+
+</html>
