@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .input-field {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+        <h1>Enter Personal Data</h1>
+        <form id="profileForm">
+            <div class="input-field">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" required>
+            </div>
+            <div class="input-field">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" required>
+            </div>
+            <div class="input-field">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" required>
+            </div>
+            <div class="input-field">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="input-field">
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="tel" id="phoneNumber" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="profileInfo"></div>
+
+    <script>
+        document.getElementById("profileForm").addEventListener("submit", function (event) {
+            event.preventDefault(); 
+
+
+            var firstName = document.getElementById("firstName").value;
+            var lastName = document.getElementById("lastName").value;
+            var dob = document.getElementById("dob").value;
+            var email = document.getElementById("email").value;
+            var phoneNumber = document.getElementById("phoneNumber").value;
+
+            var profileInfoDiv = document.getElementById("profileInfo");
+            profileInfoDiv.innerHTML = `
+                <h2>My Data</h2>
+                <p>First Name: ${firstName}</p>
+                <p>Last Name: ${lastName}</p>
+                <p>Date of Birth: ${dob}</p>
+                <p>Email: ${email}</p>
+                <p>Phone Number: ${phoneNumber}</p>
+            `;
+        });
+    </script>
+</body>
+
+</html>
