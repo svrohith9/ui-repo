@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .input-field {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Enter Personal Data</h1>
+    <form id="profileForm">
+        <div class="input-field">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" required>
+        </div>
+        <div class="input-field">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" required>
+        </div>
+        <div class="input-field">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" required>
+        </div>
+        <div class="input-field">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+        </div>
+        <div class="input-field">
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" required>
+        </div>
+        <div class="input-field">
+            <label for="hobbies">Hobbies:</label><br>
+            <input type="checkbox" id="hobby1" name="hobbies" value="Cycling">
+            <label for="hobby1">Reading</label><br>
+            <input type="checkbox" id="hobby2" name="hobbies" value="Gaming">
+            <label for="hobby2">Gardening</label><br>
+            <input type="checkbox" id="hobby3" name="hobbies" value="Cooking">
+            <label for="hobby3">Cooking</label><br>
+        </div>
+        <div class="input-field">
+            <label for="gender">Gender:</label><br>
+            <input type="radio" id="genderMale" name="gender" value="Male" required>
+            <label for="genderMale">Male</label><br>
+            <input type="radio" id="genderFemale" name="gender" value="Female" required>
+            <label for="genderFemale">Female</label><br>
+            <input type="radio" id="genderOther" name="gender" value="Other" required>
+            <label for="genderOther">Other</label><br>
+        </div>
+        <button type="submit" onclick="submitForm(event)">Submit</button>
+    </form>
+
+    <div id="profileInfo"></div>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+
+            var firstName = document.getElementById("firstName").value;
+            var lastName = document.getElementById("lastName").value;
+            var dob = document.getElementById("dob").value;
+            var email = document.getElementById("email").value;
+            var phoneNumber = document.getElementById("phoneNumber").value;
+
+            var hobbies = [];
+            var checkboxes = document.getElementsByName("hobbies");
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    hobbies.push(checkboxes[i].value);
+                }
+            }
+
+            var gender = "";
+            var radioButtons = document.getElementsByName("gender");
+            for (var i = 0; i < radioButtons.length; i++) {
+                if (radioButtons[i].checked) {
+                    gender = radioButtons[i].value;
+                    break;
+                }
+            }
+
+            var profileInfoDiv = document.getElementById("profileInfo");
+            profileInfoDiv.innerHTML = `
+                <h2>My Data</h2>
+                <p>First Name: ${firstName}</p>
+                <p>Last Name: ${lastName}</p>
+                <p>Date of Birth: ${dob}</p>
+                <p>Email: ${email}</p>
+                <p>Phone Number: ${phoneNumber}</p>
+                <p>Hobbies: ${hobbies.join(", ")}</p>
+                <p>Gender: ${gender}</p>
+            `;
+        }
+    </script>
+</body>
+
+</html>
